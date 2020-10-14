@@ -17,4 +17,4 @@ jobs:
           args: "copy -v s3:cmip6-pds fs: --include /*.csv --include /*.json"
 
       - name: replace gs with s3
-        run: for file in *; do echo $file; done
+        run: for file in *; do sed -i 's/gs:/s3:/g' $file; done
