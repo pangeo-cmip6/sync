@@ -5,6 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
+  # test comment
   catalog_sync:
     runs-on: ubuntu-latest
     steps:
