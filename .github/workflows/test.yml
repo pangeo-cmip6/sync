@@ -14,7 +14,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "copy -v gs:cmip6 fs: --include /*.csv --include /*.json"
+          args: "copy -v gs:cmip6 fs: --include /*.{csv,json}"
 
       - name: replace gs with s3
         run: |
@@ -27,4 +27,4 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "copy -v fs: s3:cmip6-pds --include /*.csv --include /*.json"
+          args: "copy -v fs: s3:cmip6-pds --include /*.{csv,json}"
