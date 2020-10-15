@@ -20,4 +20,4 @@ jobs:
         RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
         RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
       with:
-        args: "sync -c -v gs:cmip6 s3:cmip6-pds --exclude /{CMIP,ScenarioMIP,DCPP,GFDL_CM2_6,HighResMIP,CMIP5}/** --exclude /*.* --transfers 15 --checkers 65"
+        args: "sync -c -v gs:cmip6 s3:cmip6-pds --exclude /{CMIP,ScenarioMIP,DCPP,GFDL_CM2_6,HighResMIP,CMIP5}/** --exclude /*.{bin,csv,csv.gz,json,jsonl} --transfers 15 --checkers 65"
