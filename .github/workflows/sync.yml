@@ -215,7 +215,7 @@ jobs:
           args: "copy -v gs:cmip6 fs: --include /*.{csv,json}"
       - name: Change catalog links from GCS to S3
         run: |
-          for file in *; do sed -i 's/gs:/s3:/g' $file; done
+          for file in *; do sed -i 's/gs:\/\/cmip6/s3:\/\/cmip6-pds/g' $file; done
           for file in *.json; do sed -i 's/storage.googleapis.com\/cmip6/cmip6-pds.s3-us-west-2.amazonaws.com/g' $file; done  
       - name: Upload catalogs to S3
         uses: wei/rclone@v1.1.1
