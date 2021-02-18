@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 jobs:
-  # CMIP/NCAR only
+  # CMIP6/CMIP/NCAR only
   CMIP__NCAR:
     runs-on: ubuntu-latest
     steps:
@@ -14,8 +14,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/NCAR/** --transfers 15 --checkers 65"
-  # CMIP/CNRM-CERFACS only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/NCAR/** --transfers 15 --checkers 65"
+  # CMIP6/CMIP/CNRM-CERFACS only
   CMIP__CNRM-CERFACS:
     runs-on: ubuntu-latest
     steps:
@@ -25,8 +25,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/CNRM-CERFACS/** --transfers 15 --checkers 65"
-  # CMIP/IPSL only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/CNRM-CERFACS/** --transfers 15 --checkers 65"
+  # CMIP6/CMIP/IPSL only
   CMIP__IPSL:
     runs-on: ubuntu-latest
     steps:
@@ -36,8 +36,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/IPSL/** --transfers 15 --checkers 65"
-  # CMIP/CCCma only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/IPSL/** --transfers 15 --checkers 65"
+  # CMIP6/CMIP/CCCma only
   CMIP__CCCma:
     runs-on: ubuntu-latest
     steps:
@@ -47,8 +47,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/CCCma/** --transfers 15 --checkers 65"
-  # CMIP/MPI-M, CMIP/NCC only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/CCCma/** --transfers 15 --checkers 65"
+  # CMIP6/CMIP/MPI-M, CMIP6/CMIP/NCC only
   CMIP__MPI-M_NCC:
     runs-on: ubuntu-latest
     steps:
@@ -58,8 +58,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/{MPI-M,NCC}/** --transfers 15 --checkers 65"
-  # CMIP/EC-Earth-Consortium, CMIP/NASA-GISS only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{MPI-M,NCC}/** --transfers 15 --checkers 65"
+  # CMIP6/CMIP/EC-Earth-Consortium, CMIP6/CMIP/NASA-GISS only
   CMIP__EC-Earth-Consortium_NASA-GISS:
     runs-on: ubuntu-latest
     steps:
@@ -69,8 +69,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/{EC-Earth-Consortium,NASA-GISS}/** --transfers 15 --checkers 65"
-  # CMIP/NOAA-GFDL, CMIP/BCC, CMIP/AWI, CMIP/CSIRO, CMIP/SNU, CMIP/CSIRO-ARCCSS
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{EC-Earth-Consortium,NASA-GISS}/** --transfers 15 --checkers 65"
+  # CMIP6/CMIP/NOAA-GFDL, CMIP6/CMIP/BCC, CMIP6/CMIP/AWI, CMIP6/CMIP/CSIRO, CMIP6/CMIP/SNU, CMIP6/CMIP/CSIRO-ARCCSS
   CMIP__NOAA-GFDL_BCC_AWI_CSIRO_SNU_CSIRO-ARCCSS:
     runs-on: ubuntu-latest
     steps:
@@ -80,8 +80,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP/{NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/** --transfers 15 --checkers 65"			  
-  # CMIP remaining directories
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/** --transfers 15 --checkers 65"			  
+  # CMIP6/CMIP remaining directories
   CMIP__remainder:
     runs-on: ubuntu-latest
     steps:
@@ -91,8 +91,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP/{NCAR,CNRM-CERFACS,IPSL,CCCma,MPI-M,NCC,EC-Earth-Consortium,NASA-GISS,NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/**' --filter '+ /CMIP/**' --filter '- *' --transfers 15 --checkers 65"
-  # ScenarioMIP/CCCma only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/CMIP/{NCAR,CNRM-CERFACS,IPSL,CCCma,MPI-M,NCC,EC-Earth-Consortium,NASA-GISS,NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/**' --filter '+ /CMIP6/CMIP/**' --filter '- *' --transfers 15 --checkers 65"
+  # CMIP6/ScenarioMIP/CCCma only
   ScenarioMIP__CCCma:
     runs-on: ubuntu-latest
     steps:
@@ -102,8 +102,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /ScenarioMIP/CCCma/** --transfers 15 --checkers 65"	
-  # ScenarioMIP/CNRM-CERFACS, ScenarioMIP/IPSL only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/CCCma/** --transfers 15 --checkers 65"	
+  # CMIP6/ScenarioMIP/CNRM-CERFACS, CMIP6/ScenarioMIP/IPSL only
   ScenarioMIP__CNRM-CERFACS_IPSL:
     runs-on: ubuntu-latest
     steps:
@@ -113,8 +113,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with: 
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /ScenarioMIP/{CNRM-CERFACS,IPSL}/** --transfers 15 --checkers 65"			  
-  # ScenarioMIP/EC-Earth-Consortium, ScenarioMIP/MIROC, ScenarioMIP/NCAR only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/{CNRM-CERFACS,IPSL}/** --transfers 15 --checkers 65"			  
+  # CMIP6/ScenarioMIP/EC-Earth-Consortium, CMIP6/ScenarioMIP/MIROC, CMIP6/ScenarioMIP/NCAR only
   ScenarioMIP__EC-Earth-Consortium_MIROC_NCAR:
     runs-on: ubuntu-latest
     steps:
@@ -124,8 +124,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with: 
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /ScenarioMIP/{EC-Earth-Consortium,MIROC,NCAR}/** --transfers 15 --checkers 65"
-  # ScenarioMIP/MPI-M, ScenarioMIP/OHC, ScenarioMIP/MRI, ScenarioMIP/DKRZ
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/{EC-Earth-Consortium,MIROC,NCAR}/** --transfers 15 --checkers 65"
+  # CMIP6/ScenarioMIP/MPI-M, CMIP6/ScenarioMIP/OHC, CMIP6/ScenarioMIP/MRI, CMIP6/ScenarioMIP/DKRZ
   ScenarioMIP__MPI-M_OHC_MRI_DKRZ:
     runs-on: ubuntu-latest
     steps:
@@ -135,8 +135,8 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /ScenarioMIP/{MPI-M,OHC,MRI,DKRZ}/** --transfers 15 --checkers 65"
-  # ScenarioMIP remaining directories
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/{MPI-M,OHC,MRI,DKRZ}/** --transfers 15 --checkers 65"
+  # CMIP6/ScenarioMIP remaining directories
   ScenarioMIP__remainder:
     runs-on: ubuntu-latest
     steps:
@@ -146,8 +146,19 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /ScenarioMIP/{CCCma,CNRM-CERFACS,IPSL,EC-Earth-Consortium,MIROC,NCAR,MPI-M,OHC,MRI,DKRZ}/**' --filter '+ /ScenarioMIP/**' --filter '- *' --transfers 15 --checkers 65"
-  # DCPP/NCAR only
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/ScenarioMIP/{CCCma,CNRM-CERFACS,IPSL,EC-Earth-Consortium,MIROC,NCAR,MPI-M,OHC,MRI,DKRZ}/**' --filter '+ /CMIP6/ScenarioMIP/**' --filter '- *' --transfers 15 --checkers 65"
+ # CMIP6 remaining directories
+  CMIP6__remainder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GCS to S3 sync
+        uses: wei/rclone@v1.1.1
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+          RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+        with:
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/{CMIP,ScenarioMIP}/**' --filter '+ /CMIP6/**' --filter '- *' --transfers 15 --checkers 65"
+# DCPP/NCAR only
   DCPP__NCAR:
     runs-on: ubuntu-latest
     steps:
@@ -180,8 +191,8 @@ jobs:
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /DCPP/{NCAR,CCCma}/**' --filter '+ /DCPP/**' --filter '- *' --transfers 15 --checkers 65"
-  # GFDL_CM2_6, HighResMIP, CMIP5
-  GFDL-CM26_HighResMIP_CMIP5:
+  # GFDL_CM2_6, CMIP5
+  GFDL-CM26_CMIP5:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -190,7 +201,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /{GFDL_CM2_6,HighResMIP,CMIP5}/** --transfers 15 --checkers 65"
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /{GFDL_CM2_6,CMIP5}/** --transfers 15 --checkers 65"
   # remaining directories
   remainder:
     runs-on: ubuntu-latest
@@ -201,7 +212,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --exclude /{CMIP,ScenarioMIP,DCPP,GFDL_CM2_6,HighResMIP,CMIP5}/** --exclude /*.{bin,csv,csv.gz,html,json,jsonl} --transfers 15 --checkers 65"
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --exclude /{CMIP6,DCPP,GFDL_CM2_6,CMIP5}/** --exclude /*.{bin,csv,csv.gz,html,json,jsonl} --transfers 15 --checkers 65"
   # change GCS links in catalogs to S3 before uploading
   catalog:
     runs-on: ubuntu-latest
