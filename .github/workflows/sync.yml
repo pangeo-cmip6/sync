@@ -5,7 +5,7 @@ on:
     - cron: "0 */6 * * *"
 jobs:
   # CMIP6/CMIP/NCAR only
-  CMIP__NCAR:
+  CMIP6__CMIP__NCAR:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -16,7 +16,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/NCAR/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/CNRM-CERFACS only
-  CMIP__CNRM-CERFACS:
+  CMIP6__CMIP__CNRM-CERFACS:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -27,7 +27,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/CNRM-CERFACS/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/IPSL only
-  CMIP__IPSL:
+  CMIP6__CMIP__IPSL:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -38,7 +38,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/IPSL/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/CCCma only
-  CMIP__CCCma:
+  CMIP6__CMIP__CCCma:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -49,7 +49,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/CCCma/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/MPI-M, CMIP6/CMIP/NCC only
-  CMIP__MPI-M_NCC:
+  CMIP6__CMIP__MPI-M_NCC:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -60,7 +60,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{MPI-M,NCC}/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/EC-Earth-Consortium, CMIP6/CMIP/NASA-GISS only
-  CMIP__EC-Earth-Consortium_NASA-GISS:
+  CMIP6__CMIP__EC-Earth-Consortium_NASA-GISS:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -71,7 +71,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{EC-Earth-Consortium,NASA-GISS}/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/NOAA-GFDL, CMIP6/CMIP/BCC, CMIP6/CMIP/AWI, CMIP6/CMIP/CSIRO, CMIP6/CMIP/SNU, CMIP6/CMIP/CSIRO-ARCCSS
-  CMIP__NOAA-GFDL_BCC_AWI_CSIRO_SNU_CSIRO-ARCCSS:
+  CMIP6__CMIP__NOAA-GFDL_BCC_AWI_CSIRO_SNU_CSIRO-ARCCSS:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -82,7 +82,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/** --transfers 15 --checkers 65"			  
   # CMIP6/CMIP remaining directories
-  CMIP__remainder:
+  CMIP6__CMIP__remainder:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -93,7 +93,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/CMIP/{NCAR,CNRM-CERFACS,IPSL,CCCma,MPI-M,NCC,EC-Earth-Consortium,NASA-GISS,NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/**' --filter '+ /CMIP6/CMIP/**' --filter '- *' --transfers 15 --checkers 65"
   # CMIP6/ScenarioMIP/CCCma only
-  ScenarioMIP__CCCma:
+  CMIP6__ScenarioMIP__CCCma:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -104,7 +104,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/CCCma/** --transfers 15 --checkers 65"	
   # CMIP6/ScenarioMIP/CNRM-CERFACS, CMIP6/ScenarioMIP/IPSL only
-  ScenarioMIP__CNRM-CERFACS_IPSL:
+  CMIP6__ScenarioMIP__CNRM-CERFACS_IPSL:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -115,7 +115,7 @@ jobs:
         with: 
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/{CNRM-CERFACS,IPSL}/** --transfers 15 --checkers 65"			  
   # CMIP6/ScenarioMIP/EC-Earth-Consortium, CMIP6/ScenarioMIP/MIROC, CMIP6/ScenarioMIP/NCAR only
-  ScenarioMIP__EC-Earth-Consortium_MIROC_NCAR:
+  CMIP6__ScenarioMIP__EC-Earth-Consortium_MIROC_NCAR:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -126,7 +126,7 @@ jobs:
         with: 
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/{EC-Earth-Consortium,MIROC,NCAR}/** --transfers 15 --checkers 65"
   # CMIP6/ScenarioMIP/MPI-M, CMIP6/ScenarioMIP/OHC, CMIP6/ScenarioMIP/MRI, CMIP6/ScenarioMIP/DKRZ
-  ScenarioMIP__MPI-M_OHC_MRI_DKRZ:
+  CMIP6__ScenarioMIP__MPI-M_OHC_MRI_DKRZ:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -137,7 +137,7 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/ScenarioMIP/{MPI-M,OHC,MRI,DKRZ}/** --transfers 15 --checkers 65"
   # CMIP6/ScenarioMIP remaining directories
-  ScenarioMIP__remainder:
+  CMIP6__ScenarioMIP__remainder:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -147,7 +147,7 @@ jobs:
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/ScenarioMIP/{CCCma,CNRM-CERFACS,IPSL,EC-Earth-Consortium,MIROC,NCAR,MPI-M,OHC,MRI,DKRZ}/**' --filter '+ /CMIP6/ScenarioMIP/**' --filter '- *' --transfers 15 --checkers 65"
- # CMIP6 remaining directories
+  # CMIP6 remaining directories
   CMIP6__remainder:
     runs-on: ubuntu-latest
     steps:
@@ -158,7 +158,7 @@ jobs:
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/{CMIP,ScenarioMIP}/**' --filter '+ /CMIP6/**' --filter '- *' --transfers 15 --checkers 65"
-# DCPP/NCAR only
+  # DCPP/NCAR only
   DCPP__NCAR:
     runs-on: ubuntu-latest
     steps:
