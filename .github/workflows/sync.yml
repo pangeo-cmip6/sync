@@ -159,38 +159,38 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/{CMIP,ScenarioMIP}/**' --filter '+ /CMIP6/**' --filter '- *' --transfers 15 --checkers 65"
   # DCPP/NCAR only
-  DCPP__NCAR:
-    runs-on: ubuntu-latest
-    steps:
-      - name: GCS to S3 sync
-        uses: wei/rclone@v1.1.1
-        env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-          RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-        with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /DCPP/NCAR/** --transfers 15 --checkers 65"
+  #DCPP__NCAR:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: GCS to S3 sync
+  #      uses: wei/rclone@v1.1.1
+  #      env:
+  #        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+  #        RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+  #      with:
+  #        args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /DCPP/NCAR/** --transfers 15 --checkers 65"
   # DCPP/CCCma only
-  DCPP__CCCma:
-    runs-on: ubuntu-latest
-    steps:
-      - name: GCS to S3 sync
-        uses: wei/rclone@v1.1.1
-        env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-          RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-        with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /DCPP/CCCma/** --transfers 15 --checkers 65"
+  #DCPP__CCCma:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: GCS to S3 sync
+  #      uses: wei/rclone@v1.1.1
+  #      env:
+  #        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+  #        RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+  #      with:
+  #        args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /DCPP/CCCma/** --transfers 15 --checkers 65"
   # DCPP remaining directories
-  DCPP__remainder:
-    runs-on: ubuntu-latest
-    steps:
-      - name: GCS to S3 sync
-        uses: wei/rclone@v1.1.1
-        env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-          RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-        with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /DCPP/{NCAR,CCCma}/**' --filter '+ /DCPP/**' --filter '- *' --transfers 15 --checkers 65"
+  #DCPP__remainder:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: GCS to S3 sync
+  #      uses: wei/rclone@v1.1.1
+  #      env:
+  #        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+  #        RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+  #      with:
+  #        args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /DCPP/{NCAR,CCCma}/**' --filter '+ /DCPP/**' --filter '- *' --transfers 15 --checkers 65"
   # GFDL_CM2_6, CMIP5
   GFDL-CM26_CMIP5:
     runs-on: ubuntu-latest
