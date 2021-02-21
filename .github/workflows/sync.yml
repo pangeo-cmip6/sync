@@ -157,7 +157,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/{CMIP,ScenarioMIP}/**' --filter '+ /CMIP6/**' --filter '- *' --transfers 15 --checkers 65"
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/{CMIP,ScenarioMIP,old_catalogs}/**' --filter '+ /CMIP6/**' --filter '- *' --transfers 15 --checkers 65"
   # DCPP/NCAR only
   #DCPP__NCAR:
   #  runs-on: ubuntu-latest
