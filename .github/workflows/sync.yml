@@ -214,24 +214,24 @@ jobs:
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --exclude /{CMIP6,DCPP,GFDL_CM2_6,CMIP5}/** --exclude /*.{bin,csv,csv.gz,html,json,jsonl} --transfers 15 --checkers 65"
   # change GCS links in catalogs to S3 before uploading
-  catalog:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download catalogs from GCS
-        uses: wei/rclone@v1.1.1
-        env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-          RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-        with:
-          args: "copy -v gs:cmip6 fs: --include /*.{csv,json}"
-      - name: Change catalog links from GCS to S3
-        run: |
-          for file in *; do sed -i 's/gs:\/\/cmip6/s3:\/\/cmip6-pds/g' $file; done
-          for file in *.json; do sed -i 's/storage.googleapis.com\/cmip6/cmip6-pds.s3-us-west-2.amazonaws.com/g' $file; done  
-      - name: Upload catalogs to S3
-        uses: wei/rclone@v1.1.1
-        env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
-          RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-        with:
-          args: "copy -c -v fs: s3:cmip6-pds --include /*.{csv,json}"
+  #catalog:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Download catalogs from GCS
+  #      uses: wei/rclone@v1.1.1
+  #      env:
+  #        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+  #        RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+  #      with:
+  #        args: "copy -v gs:cmip6 fs: --include /*.{csv,json}"
+  #    - name: Change catalog links from GCS to S3
+  #      run: |
+  #        for file in *; do sed -i 's/gs:\/\/cmip6/s3:\/\/cmip6-pds/g' $file; done
+  #        for file in *.json; do sed -i 's/storage.googleapis.com\/cmip6/cmip6-pds.s3-us-west-2.amazonaws.com/g' $file; done  
+  #    - name: Upload catalogs to S3
+  #      uses: wei/rclone@v1.1.1
+  #      env:
+  #        RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+  #        RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+  #      with:
+  #        args: "copy -c -v fs: s3:cmip6-pds --include /*.{csv,json}"
