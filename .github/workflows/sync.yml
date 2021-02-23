@@ -15,8 +15,8 @@ jobs:
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
           args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/NCAR/** --transfers 15 --checkers 65"
-  # CMIP6/CMIP/CNRM-CERFACS only
-  CMIP6__CMIP__CNRM-CERFACS:
+  # CMIP6/CMIP/CNRM-CERFACS, CMIP6/CMIP/MOHC only
+  CMIP6__CMIP__CNRM-CERFACS_MOHC:
     runs-on: ubuntu-latest
     steps:
       - name: GCS to S3 sync
@@ -25,7 +25,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/CNRM-CERFACS/** --transfers 15 --checkers 65"
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{CNRM-CERFACS,MOHC}/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/IPSL only
   CMIP6__CMIP__IPSL:
     runs-on: ubuntu-latest
@@ -102,7 +102,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/CMIP/{NCAR,CNRM-CERFACS,IPSL,CCCma,MPI-M,NCC,EC-Earth-Consortium,NASA-GISS,NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/**' --filter '+ /CMIP6/CMIP/**' --filter '- *' --transfers 15 --checkers 65"
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --filter '- /CMIP6/CMIP/{NCAR,CNRM-CERFACS,IPSL,CCCma,MOHC,MPI-M,NCC,EC-Earth-Consortium,NASA-GISS,NOAA-GFDL,BCC,AWI,CSIRO,SNU,CSIRO-ARCCSS}/**' --filter '+ /CMIP6/CMIP/**' --filter '- *' --transfers 15 --checkers 65"
   # CMIP6/ScenarioMIP/CCCma only
   CMIP6__ScenarioMIP__CCCma:
     runs-on: ubuntu-latest
