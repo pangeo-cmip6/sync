@@ -1,6 +1,6 @@
 name: CMIP6 sync
 on:
-  # runs 4x daily at 0,6,12,18:00 UTC
+  # runs 4x daily at 0,6,12,18:00 UTC 
   schedule:
     - cron: "0 */6 * * *"
 jobs:
