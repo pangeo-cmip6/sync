@@ -58,7 +58,7 @@ jobs:
           RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
           RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS: ${{ secrets.RCLONE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
         with:
-          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include /CMIP6/CMIP/{MPI-M,NCC}/** --transfers 15 --checkers 65"
+          args: "sync -c -v gs:cmip6 s3:cmip6-pds --include  /CMIP6/CMIP/{MPI-M,NCC}/** --transfers 15 --checkers 65"
   # CMIP6/CMIP/EC-Earth-Consortium, CMIP6/CMIP/NASA-GISS only
   CMIP6__CMIP__EC-Earth-Consortium_NASA-GISS:
     runs-on: ubuntu-latest
