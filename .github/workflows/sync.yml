@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 jobs:
-  # CMIP6/CMIP/NCAR only
+  # CMIP6/CMIP/NCAR only here
   CMIP6__CMIP__NCAR:
     runs-on: ubuntu-latest
     steps:
