@@ -3,6 +3,7 @@ on:
   # runs 4x daily at 0,6,12,18:00 UTC 
   schedule:
     - cron: "0 */6 * * *"
+  workflow_dispatch:
 jobs:
   # CMIP6/CMIP/NCAR only here. update every 60 days!
   CMIP6__CMIP__NCAR:
